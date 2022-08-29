@@ -1,7 +1,9 @@
 ﻿Imports System.Threading
-Imports System.IO.StreamWriter
+
 Imports System.IO
 Imports System.Text
+
+Imports System.IO.StreamWriter
 
 Public Class Form1
     Inherits System.Windows.Forms.Form
@@ -20,6 +22,7 @@ Public Class Form1
     Public Shared Sub Segundo(Aux As String)
         Dim Max As Integer = Form1.TextBox1.Text
         Form1.ProgressBar1.Maximum = Max
+
         Dim Palabras As String() = Form1.TextBox2.Text.Split(" ")
         Dim Palabra As String = ""
         Dim Contador As Integer = 0
