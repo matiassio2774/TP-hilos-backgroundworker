@@ -42,3 +42,15 @@ C:\Users\PC1\Source\Repos\TP-Hilos-2\Hilos\Hilos\obj\Debug\Hilos.vbproj.CoreComp
 C:\Users\PC1\Source\Repos\TP-Hilos-2\Hilos\Hilos\obj\Debug\Hilos.exe
 C:\Users\PC1\Source\Repos\TP-Hilos-2\Hilos\Hilos\obj\Debug\Hilos.xml
 C:\Users\PC1\Source\Repos\TP-Hilos-2\Hilos\Hilos\obj\Debug\Hilos.pdb
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\bin\Debug\Hilos.exe.config
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\bin\Debug\Hilos.exe
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\bin\Debug\Hilos.pdb
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\bin\Debug\Hilos.xml
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.vbproj.AssemblyReference.cache
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.Form1.resources
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.Resources.resources
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.vbproj.GenerateResource.cache
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.vbproj.CoreCompileInputs.cache
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.exe
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.xml
+C:\Users\PC1\Desktop\tp-hilos-background\Hilos\Hilos\obj\Debug\Hilos.pdb

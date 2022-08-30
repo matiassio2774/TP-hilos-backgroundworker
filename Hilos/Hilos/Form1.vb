@@ -10,46 +10,41 @@ Public Class Form1
     <STAThread()>
     Public Shared Sub Main()
         Dim hilo1 As New Thread(AddressOf Primero)
-        Dim hilo2 As New Thread(AddressOf Segundo)
         hilo1.Start()
-        hilo2.Start()
     End Sub
 
     Public Shared Sub Primero()
         Dim Texto As String = Form1.TextBox2.Text
-        Segundo(Texto)
     End Sub
-    Public Shared Sub Segundo(Aux As String)
-        Dim Max As Integer = Form1.TextBox1.Text
-        Form1.ProgressBar1.Maximum = Max
 
-        Dim Palabras As String() = Form1.TextBox2.Text.Split(" ")
-        Dim Palabra As String = ""
-        Dim Contador As Integer = 0
-        Dim Linea As String = ""
-        Contador = 0
+    Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
-        Dim path As String = "C:\Users\PC1\Desktop\Hilos.txt"
-        Dim fs As FileStream = File.Create(path)
-        Dim info As Byte() = New UTF8Encoding(True).GetBytes(Aux)
-        fs.Write(info, 0, info.Length)
+        Dim i As Integer
 
-        For Each Palabra In Palabras
-            Linea = Linea & Palabra & " "
-            Contador += 1
+
+        For i = 1 To 1000
+            BackgroundWorker1.WorkerReportsProgress = True
+            BackgroundWorker1.ReportProgress(i / 10)
         Next
 
-        Dim lineas As String() = Form1.TextBox2.Lines()
-        Contador -= 1
-        For Each lin As String In lineas
-            Dim values As Object() = {lin}
-            Contador += 1
-        Next
 
-        Form1.ProgressBar1.Value = Contador
-        Form1.Label2.Text = (Contador / Max) * 100 & "%"
-        Form1.Label2.Refresh()
-        fs.Close()
+    End Sub
+
+    Private Sub BackgroundWorker1_ProgressChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
+
+        If (e.ProgressPercentage <= Val(TextBox1.Text)) Then
+            ProgressBar1.Value = e.ProgressPercentage
+        End If
+
+
+    End Sub
+
+
+
+    Private Sub BackgroundWorker1_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+
+        MsgBox("listo")
+
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         End
@@ -63,6 +58,21 @@ Public Class Form1
         If Val(TextBox1.Text) > 0 Then
             Button2.Visible = False
             TextBox1.Enabled = False
+            BackgroundWorker1.RunWorkerAsync()
+
+            Dim maximo As Integer = Val(TextBox1.Text)
+            ProgressBar1.Maximum = maximo
+
+            Dim path As String = "C:\Users\PC1\Desktop\Hilos.txt"
+            Dim fs As FileStream = File.Create(path)
+
+            For i = 1 To maximo Step 1
+                Dim info As Byte() = New UTF8Encoding(True).GetBytes("Linea " + Str(i) + vbCrLf)
+                fs.Write(info, 0, info.Length)
+            Next
+
+            fs.Close()
+
         Else
             MsgBox("Inserte cantidad maxima de lineas de texto")
         End If
